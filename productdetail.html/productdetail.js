@@ -70,5 +70,5 @@ function processPayment() {
 
     localStorage.setItem('buy_now_item', JSON.stringify(orderInfo));
 
-    window.location.href = "/Thanh toán/thanhtoan.html"; 
+    window.location.href = "/thanh_toan/thanhtoan.html"; 
 }
