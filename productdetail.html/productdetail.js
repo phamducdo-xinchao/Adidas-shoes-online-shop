@@ -25,7 +25,7 @@ window.onload = function() {
         }
     } else {
         alert("Vui lòng chọn sản phẩm từ trang chủ!");
-        window.location.href = "/web demo/index1.html";
+        window.location.href = "../index1.html";
     }
 };
 
