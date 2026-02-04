@@ -13,15 +13,12 @@
         </div>
     </header>
 
-    <!-- Nội dung chính -->
     <div class="container">
         <form id="checkoutForm" onsubmit="handleCheckout(event)">
             <div class="checkout-layout">
                 
-                <!-- CỘT TRÁI: THÔNG TIN KHÁCH HÀNG & THANH TOÁN -->
                 <div class="col-left">
                     
-                    <!-- Phần 1: Thông tin giao hàng -->
                     <h3>Thông tin giao hàng</h3>
                     <div class="row-input">
                         <div class="form-group">
@@ -61,11 +58,9 @@
                         <input type="text" placeholder="Ví dụ: Giao hàng giờ hành chính">
                     </div>
 
-                    <!-- Phần 2: Phương thức thanh toán -->
                     <div class="payment-methods">
                         <h3>Phương thức thanh toán</h3>
                         
-                        <!-- Option 1: COD -->
                         <label class="payment-option">
                             <input type="radio" name="payment" value="cod" checked onchange="togglePaymentInfo()">
                             <span><i class="fa-solid fa-money-bill-wave"></i> Thanh toán khi nhận hàng (COD)</span>
@@ -74,7 +69,6 @@
                             Bạn sẽ thanh toán tiền mặt cho shipper khi nhận được hàng.
                         </div>
 
-                        <!-- Option 2: Chuyển khoản -->
                         <label class="payment-option">
                             <input type="radio" name="payment" value="banking" onchange="togglePaymentInfo()">
                             <span><i class="fa-solid fa-qrcode"></i> Chuyển khoản ngân hàng / QR Code</span>
@@ -89,11 +83,8 @@
 
                 </div>
 
-                <!-- CỘT PHẢI: TÓM TẮT ĐƠN HÀNG -->
                 <div class="col-right">
                     <h3>Đơn hàng của bạn</h3>
-                    
-                    <!-- Nút đặt hàng -->
                     <button type="submit" class="btn-checkout" id="btn-submit">
                         ĐẶT HÀNG NGAY
                     </button>
@@ -106,7 +97,6 @@
         </form>
     </div>
 
-    <!-- MODAL THÔNG BÁO THÀNH CÔNG -->
     <div id="successModal" class="modal">
         <div class="modal-content">
             <div class="success-icon">
@@ -120,9 +110,7 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT XỬ LÝ LOGIC -->
     <script>
-        //  Xử lý chuyển đổi phương thức thanh toán
         function togglePaymentInfo() {
             const methods = document.getElementsByName('payment');
             const codInfo = document.getElementById('cod-info');
@@ -141,46 +129,34 @@
             });
         }
 
-        // Xử lý khi bấm nút "Đặt hàng"
         function handleCheckout(e) {
-            e.preventDefault(); // Chặn việc load lại trang
-
-            // Lấy nút bấm để làm hiệu ứng loading
+            e.preventDefault();
             const btn = document.getElementById('btn-submit');
             const originalText = btn.innerText;
-            
-            // Giả lập đang xử lý (Loading)
             btn.innerText = "ĐANG XỬ LÝ...";
             btn.disabled = true;
             btn.style.opacity = "0.7";
 
-            // Sau 2 giây thì báo thành công
             setTimeout(() => {
-                // Lấy tên khách hàng
                 const name = document.getElementById('fullname').value;
                 document.getElementById('customer-name-display').innerText = name;
                 
-                // Tạo mã đơn hàng ngẫu nhiên
                 const orderId = '#ADH' + Math.floor(Math.random() * 1000000);
                 document.getElementById('order-id').innerText = orderId;
 
-                // Hiện Modal thành công
                 const modal = document.getElementById('successModal');
                 modal.style.display = 'flex';
 
-                // Reset nút bấm
                 btn.innerText = originalText;
                 btn.disabled = false;
                 btn.style.opacity = "1";
             }, 1500);
         }
 
-        // Đóng Modal và quay về (Giả lập)
         function closeModal() {
-            window.location.href = "../index1.html"; // Chuyển hướng về trang chủ
+            window.location.href = "../index.html"; 
         }
 
-        // Chạy hàm hiển thị giỏ hàng khi trang web tải xong
         window.onload = renderCart;
     </script>
 </body>

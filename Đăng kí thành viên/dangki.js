@@ -65,7 +65,7 @@ signInForm.addEventListener('submit', (e) => {
         showToast("Đăng nhập thành công! Đang chuyển hướng...", "success");
         localStorage.setItem('adidas_current_user', JSON.stringify(validUser));
         setTimeout(() => {
-            window.location.href = "../index1.html"; 
+            window.location.href = "../index.html"; 
         }, 1500);
 
     } else {
