@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="CSS-Menu đa cấp/search.css">
   <title>ADIDAS Vietnam Online - Shop Sports & Originals</title>
+  
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
@@ -21,6 +23,7 @@
       color: #111;
     }
     
+
     .product-item img, .product-name {
         cursor: pointer;
     }
@@ -94,13 +97,15 @@
   <div class="slide-show">
     <div class="list-images">
       <img src="/web demo/image/football_fw24_f50_sustain_hp_banner_hero_d_0d4bf0b091.avif" alt="">
-      <img src="" alt="">
     </div>
     <div class="btns">
       <div class="btn-left btn"> <box-icon name='chevron-left'></box-icon> </div>
       <div class="btn-right btn"> <box-icon name='chevron-right'></box-icon> </div>
     </div>
   </div>
+  <script src="/web demo/index.js"></script>
+  <script src="/web demo/app.js"></script>
+  
 
   <div id="wrapper">
     <div class="headline">
@@ -112,9 +117,11 @@
       <li>
         <div class="product-item">
           <div class="product-top">
+
             <a href="/productdetail.html/productdetail.html" class="product-thump" onclick="viewProduct('Giày Trainer SSTR N 2005', 3800000, '/web demo/image/sstr-n-2005.avif')">
               <img src="/web demo/image/sstr-n-2005.avif" alt="">
             </a>
+
             <a href="/productdetail.html/productdetail.html" class="mua-ngay" onclick="viewProduct('Giày Trainer SSTR N 2005', 3800000, '/web demo/image/sstr-n-2005.avif')">Xem Chi Tiết</a>
           </div>
           <div class="product-info">
@@ -587,6 +594,7 @@
     <div class="container2">
       <div class="row">
         <div class="footer-ds">
+
           <h4>SẢN PHẨM</h4>
           <ul>
             <li><a href="">Giày </a></li>
@@ -600,6 +608,7 @@
           </ul>
         </div>
         <div class="footer-ds">
+
           <h4>THỂ THAO</h4>
           <ul>
             <li><a href="">Chạy</a></li>
@@ -612,6 +621,7 @@
           </ul>
         </div>
         <div class="footer-ds">
+
           <h4>BỘ SƯU TẬP</h4>
           <ul>
             <li><a href="">Pharrell Williams</a></li>
@@ -660,12 +670,12 @@
         const product = {
             name: name,
             price: price,
-            image: image,h
+            image: image,
+
             description: `Sản phẩm chính hãng Adidas. ${name} mang lại sự thoải mái tối đa và phong cách thời thượng. Bảo hành 12 tháng tại các cửa hàng trên toàn quốc.`
         };
         localStorage.setItem('view_product', JSON.stringify(product));
-
-        window.location.href = '/productdetail.html/productdetail.html';
+        window.location.href = 'product-detail.html';
     }
   </script>
 </body>
