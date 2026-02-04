@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm - ADIDAS VN</title>
+    <link rel="stylesheet" href="productdetail.css">
+</head>
+
+<body>
+    <div class="header">
+        <nav class="container">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <a href="/web demo/index1.html" id="logo">
+                    <img src="/web demo/image/do1.png" alt="Logo" style="height: 40px; width: auto;">
+                </a>
+                <h1 style="position: static; margin: 0; font-size: 24px;">ADIDAS</h1>
+            </div>
+
+            <ul id="menu-chinh">
+                <li><a href="/web demo/index1.html"><b>Trang chủ</b></a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="detail-wrapper">
+        <div class="detail-image-box">
+            <img id="detail-img" src="" alt="Đang tải ảnh...">
+        </div>
+        <div class="detail-info-box">
+            <div class="breadcrumb">
+                <a href="/web demo/index1.html">Trang chủ</a> / Sản phẩm / Chi tiết
+            </div>
+            <h1 class="product-title" id="detail-name">Đang tải tên sản phẩm...</h1>
+            <div class="product-price" id="detail-price">0 VNĐ</div>
+
+            <div class="product-desc" id="detail-desc">
+                Sản phẩm chính hãng Adidas. Chất liệu cao cấp, thoáng khí, đế êm ái hỗ trợ vận động tối đa.
+                <br><br>
+                <i class="fa-solid fa-check-circle" style="color: green;"></i> Hàng chính hãng 100%<br>
+                <i class="fa-solid fa-rotate-left" style="color: green;"></i> Đổi trả trong 30 ngày
+            </div>
+            <div class="option-group">
+                <span class="option-label">Chọn Kích Cỡ (Size): <span id="size-display" style="font-weight: 400;">40</span></span>
+                <div class="size-options">
+                    <div class="size-box" onclick="selectSize(this)">38</div>
+                    <div class="size-box" onclick="selectSize(this)">39</div>
+                    <div class="size-box active" onclick="selectSize(this)">40</div>
+                    <div class="size-box" onclick="selectSize(this)">41</div>
+                    <div class="size-box" onclick="selectSize(this)">42</div>
+                    <div class="size-box" onclick="selectSize(this)">43</div>
+                </div>
+            </div>
+            <div class="option-group">
+                <span class="option-label">Số Lượng:</span>
+                <div class="quantity-control">
+                    <button class="qty-btn" onclick="updateQty(-1)">-</button>
+                    <div id="qty-value">1</div>
+                    <button class="qty-btn" onclick="updateQty(1)">+</button>
+                </div>
+            </div>
+            <div class="total-box">
+                <span>Tổng cộng:</span>
+                <span class="total-price" id="total-price">0 VNĐ</span>
+            </div>
+            <button class="btn-buy-now" onclick="processPayment()">
+                THANH TOÁN NGAY <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            
+            <p style="margin-top: 15px; font-size: 13px; color: #666; text-align: center;">
+                <i class="fa-solid fa-lock"></i> Thanh toán an toàn & bảo mật
+            </p>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container2" style="text-align: center; padding: 20px; color: #fff; background-color: #222;">
+            <p>© 2026 Adidas Vietnam.</p>
+        </div>
+    </footer>
+    <script src="productdetail.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+#wrapper {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+h3 {
+    font-size: 18px;
+
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border: 1px solid #bebebe;
+    display: inline-block;
+    font-weight: 600;
+}
+
+h3 {
+    color: #000000;
+    transition: color 0.4s;
+}
+
+.headline {
+    text-align: center;
+    margin: 40px 0px;
+}
+
+ul.product {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+ul.product li {
+    flex-basis: 25%;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+ul.product li img {
+    max-width: 100%;
+    height: auto;
+}
+
+ul.product li .product-top {
+    position: relative;
+    overflow: hidden;
+}
+
+ul.product li .product-top .product-thumb {
+    display: block;
+}
+
+ul.product li .product-top .product-thumb img {
+    display: block;
+}
+
+ul.product li .product-top a.mua-ngay {
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    background-color: rgb(134, 134, 134);
+    color: #fff;
+    padding: 10px 0px;
+    position: absolute;
+    bottom: -36px;
+    width: 100%;
+    transition: 0.3s ease-in-out;
+    opacity: 0.85;
+}
+
+ul.product li:hover a.mua-ngay {
+    bottom: 0px;
+
+}
+
+ul.product li .product-info {
+    padding: 10px 0px;
+}
+
+ul.product li .product-info a {
+    display: block;
+    text-decoration: none;
+}
+
+ul.product li .product-info a.product-danhmuc {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #000000;
+    padding: 3px 0px;
+    transition: color 0.4s;
+}
+
+ul.product li .product-info a.product-danhmuc:hover {
+    color: rgb(37, 37, 37);
+}
+
+ul.product li .product-info a.product-name {
+    color: rgb(121, 121, 121);
+    padding: 3px 0px;
+}
+
+ul.product li .product-info .product-gia-sp {
+    color: #111;
+    padding: 2px 0px;
+    font-weight: 700;
+}

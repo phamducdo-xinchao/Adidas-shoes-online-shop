@@ -1,0 +1,137 @@
+h1{
+  color: #000000;
+position: absolute;
+top: 8px;
+left: 80px;
+}
+body{
+}
+.container{
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+}
+.header{
+  background-color:rgb(247, 247, 247) ;
+  margin: -8px;
+}
+nav {
+  display: flex;
+  justify-content: space-between ;
+  justify-items: center;
+}
+#logo{
+  padding: 10px 50px;
+}
+#logo img{
+  max-width: 40px;
+  top: -5px;
+  height: auto;
+}
+#menu-chinh{
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#menu-chinh li {
+  position:relative;
+}
+#menu-chinh li a{
+  color: #000000;
+  display: block;
+  padding: 23px 40px;
+  text-decoration: none;
+  transition: color 0.4s;
+}
+#menu-chinh li a:hover{
+  color:rgb(105, 74, 74);
+}
+
+#menu-chinh ul.sub-menu{
+  position:absolute;
+  background-color:rgb(254, 255, 245) ;
+  padding: 15px 0px;
+  list-style: none;
+  width: 200px;
+  border: 1px solid rgb(163, 163, 158);
+  display:none;
+  left: 20px;
+}
+#menu-chinh ul.sub-menu :hover{
+  background-color: #dad8d8;
+  color:#3c4111;
+}
+#menu-chinh li:hover> ul.sub-menu{
+  display:block;
+}
+#menu-chinh ul.sub-menu a{
+  padding: 10px 20px;
+  border-bottom: 0px solid rgba(211, 194, 194, 0.959);
+  left: 0;
+}
+#menu-chinh ul.sub-menu li:hover>a{
+  border-bottom: 0px solid  rgb(0, 0, 0);
+}
+#menu-chinh ul.sub-menu li:last-child a{
+  border:none;
+}
+#menu-chinh ul.sub-menu ul.sub-menu{
+  left: 202px;
+  top: -15px;
+}
+/* thiết lập border khi hover */
+#menu-chinh>li>a{
+  position:relative;
+}
+#menu-chinh>li>a::before{
+content:"";
+height: 4px;
+width: 0%;
+background: #7765654f;
+position:absolute;
+bottom: 0px;
+left: 0px;
+transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+#menu-chinh>li:hover>a::before{
+  width: 100%;
+}
+.title-main{
+  text-align: center;
+  margin: 0 15px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  color: #fa6e4f;
+}
+.slide-show {
+  text-align: center;
+  margin-top: 10px;
+  height: 750px;
+}
+
+.slide-show img {
+  max-width: 90%;
+}
+.list-images {
+  display: flex;
+  transform: translateX();
+  transition: 0.5;
+  justify-content: center;
+}
+
+.btns {
+  front-size: 45px;
+  color: #ff0000;
+  position :absolute;
+  top:50%
+  transform: translateY(-50%);
+  transition: 0.5s;
+  cursor: pointer;
+}
+.btn-left{
+  left: 0;
+}
+.btn-right{
+  right: 0;
+}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán - Adidas Vietnam</title>
+    <link rel="stylesheet" href="thanhtoan.css">    
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">ADIDAS CHECKOUT</div>
+        </div>
+    </header>
+
+    <!-- Nội dung chính -->
+    <div class="container">
+        <form id="checkoutForm" onsubmit="handleCheckout(event)">
+            <div class="checkout-layout">
+                
+                <!-- CỘT TRÁI: THÔNG TIN KHÁCH HÀNG & THANH TOÁN -->
+                <div class="col-left">
+                    
+                    <!-- Phần 1: Thông tin giao hàng -->
+                    <h3>Thông tin giao hàng</h3>
+                    <div class="row-input">
+                        <div class="form-group">
+                            <label>Họ và tên *</label>
+                            <input type="text" id="fullname" placeholder="Họ và tên" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Số điện thoại *</label>
+                            <input type="tel" id="phone" placeholder="Số điện thoại" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="email" placeholder="email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Địa chỉ nhận hàng *</label>
+                        <input type="text" id="address" placeholder="Số nhà, tên đường, phường/xã..." required>
+                    </div>
+                    <div class="row-input">
+                        <div class="form-group">
+                            <label>Tỉnh / Thành phố *</label>
+                            <select id="city" required>
+                                <option value="">Chọn Tỉnh/Thành</option>
+                                <option value="Hanoi">Hà Nội</option>
+                                <option value="HCM">TP. Hồ Chí Minh</option>
+                                <option value="Danang">Đà Nẵng</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Quận / Huyện</label>
+                            <input type="text" placeholder="Nhập Quận/Huyện">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Ghi chú đơn hàng</label>
+                        <input type="text" placeholder="Ví dụ: Giao hàng giờ hành chính">
+                    </div>
+
+                    <!-- Phần 2: Phương thức thanh toán -->
+                    <div class="payment-methods">
+                        <h3>Phương thức thanh toán</h3>
+                        
+                        <!-- Option 1: COD -->
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="cod" checked onchange="togglePaymentInfo()">
+                            <span><i class="fa-solid fa-money-bill-wave"></i> Thanh toán khi nhận hàng (COD)</span>
+                        </label>
+                        <div id="cod-info" class="payment-content" style="display: block;">
+                            Bạn sẽ thanh toán tiền mặt cho shipper khi nhận được hàng.
+                        </div>
+
+                        <!-- Option 2: Chuyển khoản -->
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="banking" onchange="togglePaymentInfo()">
+                            <span><i class="fa-solid fa-qrcode"></i> Chuyển khoản ngân hàng / QR Code</span>
+                        </label>
+                        <div id="banking-info" class="payment-content">
+                            Vui lòng chuyển khoản đến STK: <b>0000</b><br>
+                            Ngân hàng: XYZ<br>
+                            Chủ TK: Phạm Đức Đỗ<br>
+                            Nội dung: <b>SĐT_Tên_Khách_Hàng</b>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- CỘT PHẢI: TÓM TẮT ĐƠN HÀNG -->
+                <div class="col-right">
+                    <h3>Đơn hàng của bạn</h3>
+                    
+                    <!-- Nút đặt hàng -->
+                    <button type="submit" class="btn-checkout" id="btn-submit">
+                        ĐẶT HÀNG NGAY
+                    </button>
+                    <p style="margin-top: 10px; font-size: 12px; text-align: center; color: #666;">
+                        <i class="fa-solid fa-shield-halved"></i> Bảo mật thanh toán tuyệt đối
+                    </p>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <!-- MODAL THÔNG BÁO THÀNH CÔNG -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="success-icon">
+                <i class="fa-regular fa-circle-check"></i>
+            </div>
+            <h2>Đặt hàng thành công!</h2>
+            <p>Cảm ơn bạn <b id="customer-name-display"></b> đã mua hàng tại Adidas.</p>
+            <p>Mã đơn hàng: <b id="order-id"></b></p>
+            <p style="margin-top: 10px; color: #666;">Chúng tôi sẽ liên hệ sớm để xác nhận.</p>
+            <button onclick="closeModal()" style="margin-top: 20px; padding: 10px 30px; background: #000; color: white; border: none; cursor: pointer;">Về trang chủ</button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT XỬ LÝ LOGIC -->
+    <script>
+        //  Xử lý chuyển đổi phương thức thanh toán
+        function togglePaymentInfo() {
+            const methods = document.getElementsByName('payment');
+            const codInfo = document.getElementById('cod-info');
+            const bankingInfo = document.getElementById('banking-info');
+
+            methods.forEach(method => {
+                if (method.checked) {
+                    if (method.value === 'cod') {
+                        codInfo.style.display = 'block';
+                        bankingInfo.style.display = 'none';
+                    } else {
+                        codInfo.style.display = 'none';
+                        bankingInfo.style.display = 'block';
+                    }
+                }
+            });
+        }
+
+        // Xử lý khi bấm nút "Đặt hàng"
+        function handleCheckout(e) {
+            e.preventDefault(); // Chặn việc load lại trang
+
+            // Lấy nút bấm để làm hiệu ứng loading
+            const btn = document.getElementById('btn-submit');
+            const originalText = btn.innerText;
+            
+            // Giả lập đang xử lý (Loading)
+            btn.innerText = "ĐANG XỬ LÝ...";
+            btn.disabled = true;
+            btn.style.opacity = "0.7";
+
+            // Sau 2 giây thì báo thành công
+            setTimeout(() => {
+                // Lấy tên khách hàng
+                const name = document.getElementById('fullname').value;
+                document.getElementById('customer-name-display').innerText = name;
+                
+                // Tạo mã đơn hàng ngẫu nhiên
+                const orderId = '#ADH' + Math.floor(Math.random() * 1000000);
+                document.getElementById('order-id').innerText = orderId;
+
+                // Hiện Modal thành công
+                const modal = document.getElementById('successModal');
+                modal.style.display = 'flex';
+
+                // Reset nút bấm
+                btn.innerText = originalText;
+                btn.disabled = false;
+                btn.style.opacity = "1";
+            }, 1500);
+        }
+
+        // Đóng Modal và quay về (Giả lập)
+        function closeModal() {
+            window.location.href = "/web demo/index1.html"; // Chuyển hướng về trang chủ
+        }
+
+        // Chạy hàm hiển thị giỏ hàng khi trang web tải xong
+        window.onload = renderCart;
+    </script>
+</body>
+</html>
